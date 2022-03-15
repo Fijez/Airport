@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Airport:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Airport_jar</output-path>
+    <root id="archive" name="Airport.jar">
+      <element id="module-output" name="Airport" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/yaml/snakeyaml/1.30/snakeyaml-1.30.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
