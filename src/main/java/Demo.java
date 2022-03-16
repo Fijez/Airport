@@ -15,7 +15,7 @@ public class Demo {
             result = Filter.doFilter(in, column, filter);
             Timer.stopTimer();
             result.forEach(System.out::println);
-//           System.out.println(result);
+            System.out.println(result);
         } catch (IOException e) {
             e.printStackTrace();
         }
