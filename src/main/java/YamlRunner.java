@@ -18,6 +18,6 @@ public final class YamlRunner {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return prop != null ? prop.get("column") : null;
+        return prop != null ? prop.get("column") : 0;
     }
     }

@@ -1,17 +1,28 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public final class Filter {
-    public static List<String> doFilter(BufferedReader file, int column, String filter){
-        return file.lines()
-                .filter(x -> x
-                        .split(",")[column]
-                        .contains(filter))
-                .sorted(Comparator.comparing(x -> x
-                        .split(",")[column]))
-                .collect(Collectors.toList());
+    public static List<String> doFilter(BufferedReader file, int column, String filter) throws IOException {
+        Pattern pattern = Pattern.compile(",");
+        List<String> str = new ArrayList<>();
+
+        String temp = file.readLine();
+        while(temp != null){
+            if(temp.contains(filter)){
+                str.add(temp);
+            }
+            temp = file.readLine();
+        }
+        return str;
+//        return file.lines()
+//                .filter(x -> x
+//                        .split(pattern.pattern())[column]
+//                        .contains(filter))
+//                .sorted(Comparator.comparing(x -> x
+//                        .split(",")[column]))
+//                .collect(Collectors.toList());
     }
 }

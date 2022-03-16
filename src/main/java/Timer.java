@@ -8,9 +8,16 @@ public final class Timer {
         start = System.nanoTime();
     }
 
-    public static long stopTimerAndGetResultInNanoseconds() {
+    public static void stopTimer() {
         finish = System.nanoTime();
         elapsed = finish - start;
-        return elapsed /= 1000000;
+        elapsed /= 1000000;
+    }
+
+    public static long getTimeInMS() {
+        return elapsed;
+    }
+    public static long timeInMoment(){
+        return (System.nanoTime() - start)/ 1000000;
     }
 }
