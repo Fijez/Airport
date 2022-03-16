@@ -1,8 +1,6 @@
 import java.io.*;
 import java.nio.charset.Charset;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Demo {
     public static void main(String[] args) {
@@ -17,14 +15,7 @@ public class Demo {
         try (BufferedReader in = new BufferedReader(new InputStreamReader(
                 new FileInputStream("src/main/resources/airports.dat")))){
             Timer.startTimer();
-            result =
-                    in.lines()
-                    .filter(x -> x
-                            .split(",")[column]
-                            .contains(filter))
-                    .sorted(Comparator.comparing(x -> x
-                            .split(",")[column]))
-                    .collect(Collectors.toList());
+            result = Filter.doFilter(in, column, filter);
             timer = Timer.stopTimerAndGetResultInNanoseconds();
             result.forEach(System.out::println);
         } catch (IOException e) {
