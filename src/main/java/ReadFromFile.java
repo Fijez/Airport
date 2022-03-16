@@ -20,7 +20,7 @@ private static BufferedReader in;
             System.err.println("ошибка чтения строки из файла");
             e.printStackTrace();
         }
-        return "null";
+        return null;
     }
     public static void closeFile() {
         try {
