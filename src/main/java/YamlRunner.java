@@ -7,7 +7,7 @@ import java.util.Map;
 
 public final class YamlRunner {
 
-    public static Integer getYamlData(){
+    public static Integer getYamlData() {
         Map<String, Integer> prop = null;
         try {
             InputStream in = new FileInputStream
@@ -20,4 +20,4 @@ public final class YamlRunner {
         }
         return prop != null ? prop.get("column") : 0;
     }
-    }
+}

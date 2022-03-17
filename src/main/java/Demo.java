@@ -1,6 +1,8 @@
-import java.io.*;
-import java.nio.charset.Charset;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.List;
 
 public class Demo {
     public static void main(String[] args) {
@@ -10,22 +12,16 @@ public class Demo {
         System.gc();
         List<String> result = null;
         try (BufferedReader in = new BufferedReader(new InputStreamReader(
-                new FileInputStream("src/main/resources/airports.dat")))){
+                new FileInputStream("src/main/resources/airports.dat")))) {
             Timer.startTimer();
             result = Filter.doFilter(in, column, filter);
             Timer.stopTimer();
             result.forEach(System.out::println);
-//           System.out.println(result);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if(result == null) {
-            System.out.println("Количество найденныйх строк: 0 Время затарченное на поиск: "
-                    + Timer.getTimeInMS());
-        } else {
-            System.out.println("Количество найденныйх строк: "
-                    + result.size() + " Время затарченное на поиск: "
-                    + Timer.getTimeInMS());
-        }
+        System.out.println("Количество найденныйх строк: "
+                + (result != null ? result.size() : 0) + " Время затарченное на поиск: "
+                + Timer.getTimeInMS() + "мс");
     }
 }

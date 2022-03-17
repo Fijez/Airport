@@ -1,3 +1,4 @@
 Manifest-Version: 1.0
 Main-Class: Demo
+Class-Path: snakeyaml-1.30.jar
 
